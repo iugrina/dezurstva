@@ -27,7 +27,7 @@ class Cuvanje(models.Model):
     tipCuvanja = models.ForeignKey(TipCuvanja)
     datum = models.DateTimeField('datum cuvanja')
     sati = models.IntegerField()
-    opis = models.CharField(max_length=200)
+    opis = models.CharField(max_length=200, blank=True)
     zadnja_promjena = models.DateTimeField('zadnja promjena', auto_now=True)
     def __unicode__(self):
         return u"%s, %s, %s, %s, %s, %s" % (self.osoba, self.predmet, self.tipCuvanja, self.datum, self.sati, self.opis)
