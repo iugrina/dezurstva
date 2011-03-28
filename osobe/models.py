@@ -5,6 +5,7 @@ from django.db import models
 class Osoba(models.Model):
     class Meta:
         verbose_name_plural = 'Osobe'
+        ordering = ['prezime', 'ime']
 
     ime = models.CharField(max_length=30)
     prezime = models.CharField(max_length=30)
@@ -16,6 +17,7 @@ class Osoba(models.Model):
 class Predmet(models.Model):
     class Meta:
         verbose_name_plural = 'Predmeti'
+        ordering = ['imePredmeta']
 
     imePredmeta = models.CharField(max_length=50)
 
@@ -25,7 +27,8 @@ class Predmet(models.Model):
 
 class TipCuvanja(models.Model):
     class Meta:
-        verbose_name_plural = 'Tipovi Cuvanja'
+        verbose_name_plural = 'Tipovi cuvanja'
+        ordering = ['tipCuvanja']
 
     tipCuvanja = models.CharField(max_length=50)
 
@@ -36,6 +39,7 @@ class TipCuvanja(models.Model):
 class Cuvanje(models.Model):
     class Meta:
         verbose_name_plural = 'Cuvanja'
+        ordering = ['-datum']
 
     osoba = models.ForeignKey(Osoba)
     predmet = models.ForeignKey(Predmet)
@@ -46,7 +50,7 @@ class Cuvanje(models.Model):
     zadnja_promjena = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return u"%s, %s, %s, %s, %s, %s" % (self.osoba, self.predmet, self.tipCuvanja, self.datum, self.sati, self.opis)
+        return u"[%s] (%s) ::  %s, %s, %s, nap: %s" % (self.datum, self.sati, self.osoba, self.predmet, self.tipCuvanja, self.opis)
 
 
 
