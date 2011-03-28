@@ -10,17 +10,19 @@ class Alert(models.Model):
         return self.desc
 
 def my_handler(sender, **kwargs):
-    sedamDana = datetime.timedelta(seconds=60)
+    offset = datetime.timedelta(seconds=60)
     inst = kwargs['instance']
+    print(type(inst))
     a = Alert(desc = str(inst) )
-    if( inst.zadnja_promjena.now() > sedamDana + inst.zadnja_promjena ):
+    if( inst.zadnja_promjena is not None and \
+             inst.zadnja_promjena.now() > offset + inst.zadnja_promjena ):
         a.save()
     
 
 
 from django.db.models.signals import pre_save
 
-from input.models import Cuvanje
+from osobe.models import Cuvanje
 
 pre_save.connect(my_handler, sender=Cuvanje)
 
