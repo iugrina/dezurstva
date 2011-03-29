@@ -10,10 +10,9 @@ class Alert(models.Model):
         return self.desc
 
 def my_handler(sender, **kwargs):
-    offset = datetime.timedelta(seconds=60)
+    offset = datetime.timedelta(seconds=600)
     inst = kwargs['instance']
-    print(type(inst))
-    a = Alert(desc = str(inst) )
+    a = Alert(desc = str(inst.id) + " >>  " + str(inst) )
     if( inst.zadnja_promjena is not None and \
              inst.zadnja_promjena.now() > offset + inst.zadnja_promjena ):
         a.save()
