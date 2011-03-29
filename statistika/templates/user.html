@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title> Dežurstva @ PMF-MO - {{ime}} </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+  <style type="text/css">
+    body {
+    	font:13px arial,helvetica,clean,sans-serif;
+    	*font-size:small;
+    	*font:x-small;
+    }
+    
+    table {
+    	font-size:inherit;
+    	font:100%;
+    }
+    
+    body * {line-height:1.5em;}
+    
+    * {
+    	margin: 0; padding:0; 
+    	font-family: Verdana, Tahoma, sans-serif; 
+    }
+    
+    body {margin: 1em;}
+    
+    h1, h2, h3, h4, h5, h6, p, pre, blockquote, 
+    label, ul, ol, dl, li, fieldset, address { margin: 1em 0; }
+    li, dd { margin-left:5%; }
+    fieldset { padding: .5em; }
+    
+    li {
+      margin: 0;
+      margin-left: 1.5em;
+    }
+    
+    ul.simple_ulist{
+      list-style-position: outside;
+      list-style-type: square;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin: 0px;
+    }
+    
+    table strong {font-size: 0.9em;}
+    table th {font-size: 0.85em;}
+    table code {font-size: 1em;}
+    tr td {padding-bottom: 0.5em;padding-left: 1em;}
+    
+    a:link, a:visited {color: #513058; }
+    a:link, a:visited {text-decoration: none; }
+    a:hover {text-decoration: underline;}
+    
+    h1 {font-size: 4em; font-weight: normal; margin-bottom: 0.4em; text-transform: lowercase;}
+    h2 {font-size: 0.9em; font-weight: bold}
+    h3 {font-size: 0.9em; font-weight: bold}
+    
+    #wrap {margin: 1em 5%;}
+    a:link, a:visited {color: #804070;}
+    a:hover {background-color: #DCE6CF }
+    
+    h1 {
+    	border-left: 8px solid #804070;
+    	margin-left: -23px;
+    	padding-left: 10px;
+    }
+    
+    h2 {
+    	border-left: 3px solid #668040;
+    	margin-left: -8px;
+    	padding-left: 2px;
+    }
+    
+    div.left{
+      padding-right: 1em;
+      float: left;
+    }
+    
+    div.right{
+      border-left: #804070 1px dashed;
+      padding-left: 2em;
+      float: left;
+      width: 640px;
+    }
+    
+    
+    /* Table formatting -------------------- */
+    
+    table {border-collapse: collapse; margin-bottom: 1.5em;}
+    td, th {vertical-align: bottom; padding-right: 1em;}
+    th {font-weight: bold; text-align: left; font-size: 0.8em; border-bottom: 1px solid #666;}
+    tr td {padding-bottom: 0.25em; pading-left: 0.5em;}
+
+  </style>
+</head>
+
+<body>
+
+<div id="wrap">
+	<h1>{{ime}}</h1>
+	<h2>Log</h2>
+
+<!-- ovdje ide tijelo dokumenta -->
+
+<ul class="simple_ulist>
+{% for l in logs %}
+<li>{{l}} </li>
+{% endfor %}
+</ul>
+
+<!-- kraj tijela -->
+
+</div>
+</body>
+</html>
+
+
