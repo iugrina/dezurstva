@@ -48,12 +48,11 @@ def index(request, sort_id=0):
 	for o in osobe :
 		stat.append( {'ime': str(o), 'id': o.id, 'sati': OsobaStatistika(o).sati( ZADNJIH_X_DANA )} )
 
+	sort_id = int(sort_id)
 	if sort_id == 0 :
 		sort_id = max(ZADNJIH_X_DANA)
 	elif sort_id not in ZADNJIH_X_DANA :
 		return HttpResponse("Dobraaaa, NOT!")
-	else :
-		sort_id = int(sort_id)
 
 
 	for i in range(0, len(ZADNJIH_X_DANA)) :
