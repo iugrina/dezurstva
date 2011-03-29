@@ -2,6 +2,7 @@
 
 from osobe.models import *
 from django.shortcuts import render_to_response
+from django.http import HttpResponse
 
 
 import datetime
@@ -49,8 +50,11 @@ def index(request, sort_id=0):
 
 	if sort_id == 0 :
 		sort_id = max(ZADNJIH_X_DANA)
-	else:
+	elif sort_id not in ZADNJIH_X_DANA :
+		return HttpResponse("Dobraaaa, NOT!")
+	else :
 		sort_id = int(sort_id)
+
 
 	for i in range(0, len(ZADNJIH_X_DANA)) :
 		if ZADNJIH_X_DANA[i] == sort_id :
