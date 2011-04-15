@@ -11,7 +11,7 @@ class Osoba(models.Model):
     prezime = models.CharField(max_length=30)
 
     def __unicode__(self):
-        return u"%s %s" % (self.ime, self.prezime)
+        return u"%s, %s" % (self.prezime, self.ime)
 
 
 class Predmet(models.Model):
