@@ -64,7 +64,7 @@ def index(request, sort_id=0):
 	stat = sorted( stat, key = lambda x: x['sati'][ind], reverse=True )
 
 
-	cuvanja = Cuvanje.objects.all().order_by('-datum')[:LOG_LENGTH]
+	cuvanja = Cuvanje.objects.all().order_by('-zadnja_promjena')[:LOG_LENGTH]
 	cuvanja = map( str, cuvanja)
 
 	t = 'statistika/templates/index.html'
