@@ -50,7 +50,7 @@ class Cuvanje(models.Model):
     zadnja_promjena = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return u"[%s] (%s) ::  %s, %s, %s, nap: %s" % (self.datum, self.sati, self.osoba, self.predmet, self.tipCuvanja, self.opis)
+        return u"[%s] (%s) ::  %s - %s - %s, nap: %s" % (self.datum, self.sati, self.osoba, self.predmet, self.tipCuvanja, self.opis)
 
 
 
