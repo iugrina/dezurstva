@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 import datetime
 
-ZADNJIH_X_DANA = [1, 3, 6, 20]
+ZADNJIH_X_DANA = [30,90,180,360]
 
 LOG_LENGTH = 50
 
@@ -40,7 +40,7 @@ class OsobaStatistika():
 
 
 def index(request, sort_id=0):
-	osobe = Osoba.objects.all()
+	osobe = Osoba.objects.filter(status=1)
 	stat = list()
 
 	print sort_id

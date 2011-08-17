@@ -9,6 +9,7 @@ class Osoba(models.Model):
 
     ime = models.CharField(max_length=30)
     prezime = models.CharField(max_length=30)
+    status = models.BooleanField(default=1)
 
     def __unicode__(self):
         return u"%s, %s" % (self.prezime, self.ime)
