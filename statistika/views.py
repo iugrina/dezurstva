@@ -17,21 +17,25 @@ class OsobaStatistika():
 	
 	def sati(self, zadnjihD = [] ):
 
-		def f( i, d) :
-			if( d < i.datum ): return int(i.sati)
+    def f( i, d, pocetak ) :
+        if( d < i.datum and i.datum > pocetak ): return int(i.sati)
 			return 0
 
 		cuvanjaOsobe = self.osoba.cuvanje_set.all()
+
+        pocetak = datetime.datetime(2012,9,1)
+
 		if zadnjihD == [] :
 			ukupno = 0
 			for i in cuvanjaOsobe :
-				ukupno += i.sati
+                if i.datum > pocetak :
+                    ukupno += i.sati
 			return ukupno
 		else :
 			satiD = map( lambda x: 0, zadnjihD )
 			datetimeD = [ datetime.datetime.now() - datetime.timedelta(days=d) for d in zadnjihD ] 
 			for i in cuvanjaOsobe :
-				tmp = [ f(i,d) for d in datetimeD ]
+				tmp = [ f(i,d,pocetak) for d in datetimeD ]
 				satiD = [ i+j for i,j in zip( satiD, tmp) ]
 			return satiD
 			
