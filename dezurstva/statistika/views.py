@@ -1,6 +1,6 @@
 # Create your views here.
 
-from osobe.models import *
+from dezurstva.osobe.models import *
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
@@ -17,8 +17,8 @@ class OsobaStatistika():
     
     def sati(self, zadnjihD = [] ):
 
-    def f( i, d, pocetak ) :
-        if( d < i.datum and i.datum > pocetak ): return int(i.sati)
+        def f( i, d, pocetak ) :
+            if( d < i.datum and i.datum > pocetak ): return int(i.sati)
             return 0
 
         cuvanjaOsobe = self.osoba.cuvanje_set.all()
@@ -71,7 +71,7 @@ def index(request, sort_id=0):
     cuvanja = Cuvanje.objects.all().order_by('-zadnja_promjena')[:LOG_LENGTH]
     cuvanja = map( str, cuvanja)
 
-    t = 'statistika/templates/index.html'
+    t = 'index.html'
 
     return render_to_response(t, 
         {'stat_list': stat, 'logs': cuvanja, 'sort': ZADNJIH_X_DANA })
@@ -83,7 +83,7 @@ def user_details(request, user_id=1):
     osoba = Osoba.objects.get(id = user_id)
     cuvanjaOsobe = map( str, osoba.cuvanje_set.all().order_by('-datum'))
 
-    t = 'statistika/templates/user.html'
+    t = 'user.html'
 
     return render_to_response(t, {'logs': cuvanjaOsobe, 'ime': str(osoba) })
 

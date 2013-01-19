@@ -5,9 +5,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	(r'^dez/$', 'statistika.views.index'),
-	(r'^dez/user/(?P<user_id>\d+)/$', 'statistika.views.user_details'),
-	(r'^dez/sort/(?P<sort_id>\d+)/$', 'statistika.views.index'),
+	(r'^dez/$', 'dezurstva.statistika.views.index'),
+	(r'^dez/user/(?P<user_id>\d+)/$', 'dezurstva.statistika.views.user_details'),
+	(r'^dez/sort/(?P<sort_id>\d+)/$', 'dezurstva.statistika.views.index'),
 
 
 

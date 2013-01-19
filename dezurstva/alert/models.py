@@ -21,7 +21,7 @@ def my_handler(sender, **kwargs):
 
 from django.db.models.signals import pre_save
 
-from osobe.models import Cuvanje
+from dezurstva.osobe.models import Cuvanje
 
 pre_save.connect(my_handler, sender=Cuvanje)
 
