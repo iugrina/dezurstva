@@ -29,3 +29,6 @@ RewriteRule ^/(static.*)$ /$1 [QSA,L,PT]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/(.*)$ /tmp/dez.fcgi/$1 [QSA,L]
 ```
+
+Za uredno izvršavanje aplikacije potrebno je prilagoditi i
+`./dezurstva/settings.py.sample` te `./dezurstva/urls.py.sample`.
