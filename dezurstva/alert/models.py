@@ -16,7 +16,7 @@ def my_handler(sender, **kwargs):
     if( inst.zadnja_promjena is not None and \
              inst.zadnja_promjena.now() > offset + inst.zadnja_promjena ):
         a.save()
-    
+
 
 
 from django.db.models.signals import pre_save
