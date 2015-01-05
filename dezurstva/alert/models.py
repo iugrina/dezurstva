@@ -9,6 +9,8 @@ class Alert(models.Model):
     def __unicode__(self):
         return self.desc
 
+# ako se mijenja nesto starije od 10 minuta
+# podigni ALERT (da ne bi bilo falsificiranja)
 def my_handler(sender, **kwargs):
     offset = datetime.timedelta(seconds=600)
     inst = kwargs['instance']
