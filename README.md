@@ -1,6 +1,6 @@
 # Jednostavna aplikacija za praćenje dežurstava
 
-Aplikacija je pisana u jeziku Python te koristi Djanko framework.
+Aplikacija je pisana u jeziku Python te koristi Django framework.
 Više o potrebnim bibliotekama može se naći u dokumentu
 `./requirements.txt`.
 
